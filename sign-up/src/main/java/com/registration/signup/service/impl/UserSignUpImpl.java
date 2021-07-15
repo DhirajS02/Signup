@@ -1,5 +1,7 @@
 package com.registration.signup.service.impl;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +17,9 @@ public class UserSignUpImpl implements UserSignUp {
 
 	@Override
 	public User registration(User user) {
-		return userRepo.registration(user);		
+	String[] dobArray = user.getDob().split("/");
+	LocalDate date=LocalDate.of(Integer.parseInt(dobArray[2]), Integer.parseInt(dobArray[1]), Integer.parseInt(dobArray[0]));
+		return userRepo.registration(user,date);		
 	}
 
 	

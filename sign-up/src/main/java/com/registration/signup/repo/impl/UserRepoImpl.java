@@ -1,5 +1,7 @@
 package com.registration.signup.repo.impl;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -19,10 +21,10 @@ public class UserRepoImpl implements UserRepo {
 	QueryUtility queryUtil;
 
 	@Override
-	public User registration(User user) {
+	public User registration(User user,LocalDate date) {
 		String query = queryUtil.getProperty(AppConstant.QUERY_FOR_ADDUSER);
 		Object[] params = new Object[] {user.getCustomerId(),user.getUserName(),user.getEmail(),user.getPassword(),user.getFirstName(),user.getLastName(),
-				user.getCountry(),user.getZip(),user.getState(),user.getCity(),user.getStreet(),user.getDob(),user.getPhoneNumber()};
+				user.getCountry(),user.getZip(),user.getState(),user.getCity(),user.getStreet(),date,user.getPhoneNumber()};
 		int i=jdbcTemplate.update(query, params);
 		if(i>0)
 		{
