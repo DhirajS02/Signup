@@ -10,6 +10,7 @@ import com.registration.signup.util.AppConstant;
 import com.registration.signup.util.QueryUtility;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.registration.signup.json.User;
+import com.registration.signup.mapper.UserMapper;
 import com.registration.signup.repo.UserRepo;
 
 @Repository
@@ -39,7 +40,12 @@ public class UserRepoImpl implements UserRepo {
 //
 //		}		
 	}
-
-	
+	@Override
+	public int isCustomerIdPresent(int customerId)
+	{
+		String query = queryUtil.getProperty(AppConstant.QUERY_FOR_CHECKUSER);
+		Object[] params = new Object[] {customerId};
+		return jdbcTemplate.query(query,new UserMapper(),params).size();
+    }
 
 }

@@ -1,5 +1,7 @@
 package com.registration.signup.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +19,7 @@ public class SignupController {
 UserSignUp userSignUpImpl;
 
 @PostMapping(value="/users/register")
-public ResponseEntity<User> registration(@RequestBody User user)
+public ResponseEntity<User> registration(@Valid @RequestBody User user)
 {
 	return new ResponseEntity<User>(userSignUpImpl.registration(user),HttpStatus.CREATED);
 }
