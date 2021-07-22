@@ -7,4 +7,6 @@ import com.registration.signup.json.User;
 
 public interface UserSignUp {
 	public User registration(User user);
+	public boolean isEmailPresent(String  email);
+
 }

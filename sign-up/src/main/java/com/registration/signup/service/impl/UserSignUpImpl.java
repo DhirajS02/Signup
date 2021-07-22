@@ -48,4 +48,10 @@ public class UserSignUpImpl implements UserSignUp {
 
 	}
 
+	@Override
+	public boolean isEmailPresent(String email) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

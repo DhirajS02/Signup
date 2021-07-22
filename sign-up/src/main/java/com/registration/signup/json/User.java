@@ -5,6 +5,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class User {
-	@JsonIgnore
+	@JsonProperty(access = Access.READ_ONLY)
     private String customerId;
     @NotBlank(message = "UserName is mandatory")
     @NotNull(message = "UserName cannot be null")
@@ -23,6 +25,7 @@ public class User {
     @NotBlank(message = "password is mandatory")
     @NotNull(message = "password cannot be null")
 	@Size(min=8, max=14,message="Password must be between 8 and 14 characters")
+    @JsonProperty(access = Access.WRITE_ONLY)
 	private String password;
     @NotBlank(message = "email is mandatory")
     @NotNull(message = "email cannot be null")
