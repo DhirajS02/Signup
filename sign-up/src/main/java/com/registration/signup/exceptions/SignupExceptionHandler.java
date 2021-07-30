@@ -1,8 +1,5 @@
 package com.registration.signup.exceptions;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -18,12 +15,6 @@ public class SignupExceptionHandler {
 	@ExceptionHandler(value = { MethodArgumentNotValidException.class })
 	public ResponseEntity<UserResponseJson> handleValidationExceptions(MethodArgumentNotValidException ex) {
 		UserResponseJson userJson = new UserResponseJson();
-//		Map<String, String> errors = new HashMap<>();
-//		    ex.getBindingResult().getAllErrors().forEach((error) -> {
-//		        String fieldName = ((FieldError) error).getField();
-//		        String errorMessage = error.getDefaultMessage();
-//		        errors.put(fieldName, errorMessage);});
-
 		StringBuffer errorMessage = new StringBuffer();
 		StringBuffer errorField = new StringBuffer();
 		ex.getBindingResult().getAllErrors().stream().forEach((eacherror) -> {

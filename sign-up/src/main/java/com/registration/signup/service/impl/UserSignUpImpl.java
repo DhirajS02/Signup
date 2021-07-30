@@ -11,17 +11,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.registration.signup.json.Country;
-import com.registration.signup.json.CountryJson;
 import com.registration.signup.json.FieldIntegrity;
-import com.registration.signup.json.GeneralResponseJson;
 import com.registration.signup.json.StatesJson;
 import com.registration.signup.json.User;
 import com.registration.signup.json.UserResponseJson;

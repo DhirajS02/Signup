@@ -3,10 +3,6 @@ package com.registration.signup.mapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
 import org.springframework.jdbc.core.RowMapper;
 
 import com.registration.signup.json.User;

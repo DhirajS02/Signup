@@ -6,12 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.registration.signup.util.AppConstant;
-import com.registration.signup.util.QueryUtility;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.registration.signup.json.User;
 import com.registration.signup.mapper.UserMapper;
 import com.registration.signup.repo.UserRepo;
+import com.registration.signup.util.AppConstant;
+import com.registration.signup.util.QueryUtility;
 
 @Repository
 public class UserRepoImpl implements UserRepo {
