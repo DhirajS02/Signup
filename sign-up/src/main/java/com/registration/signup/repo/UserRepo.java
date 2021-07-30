@@ -10,4 +10,8 @@ public interface UserRepo {
 	public User registration(User user,LocalDate date);
 
 	public int isCustomerIdPresent(int customerId);
+
+	public int isEmailPresent(String email);
+
+	public int isUserNamePresent(String userName);
 }

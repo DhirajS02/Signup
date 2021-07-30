@@ -47,5 +47,17 @@ public class UserRepoImpl implements UserRepo {
 		Object[] params = new Object[] {customerId};
 		return jdbcTemplate.query(query,new UserMapper(),params).size();
     }
+	@Override
+	public int isEmailPresent(String email) {
+		String query = queryUtil.getProperty(AppConstant.QUERY_FOR_CHECKEMAIL);
+		Object[] params = new Object[] {email};
+		return jdbcTemplate.queryForObject(query,Integer.class,params);
+	}
+	@Override
+	public int isUserNamePresent(String userName) {
+		String query = queryUtil.getProperty(AppConstant.QUERY_FOR_CHECK_USERNAME);
+		Object[] params = new Object[] {userName};
+		return jdbcTemplate.queryForObject(query,Integer.class,params);
+	}
 
 }

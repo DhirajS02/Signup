@@ -4,7 +4,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
@@ -20,7 +19,7 @@ public class User {
     private String customerId;
     @NotBlank(message = "UserName is mandatory")
     @NotNull(message = "UserName cannot be null")
-	@Size(min=7, max=12,message="Username must be between 7 and 12 characters")
+	@Size(min=7, max=20,message="Username must be between 7 and 20 characters")
     private String userName;
     @NotBlank(message = "password is mandatory")
     @NotNull(message = "password cannot be null")
@@ -59,3 +58,4 @@ public class User {
 	private String phoneNumber;
     
 }
+ 

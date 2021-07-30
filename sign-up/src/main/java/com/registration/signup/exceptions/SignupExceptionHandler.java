@@ -25,13 +25,17 @@ public class SignupExceptionHandler {
 //		        errors.put(fieldName, errorMessage);});
 
 		StringBuffer errorMessage = new StringBuffer();
+		StringBuffer errorField = new StringBuffer();
 		ex.getBindingResult().getAllErrors().stream().forEach((eacherror) -> {
 			String error = eacherror.getDefaultMessage();
+			String fieldName = ((FieldError) eacherror).getField();
 			errorMessage.append(",").append(error);
+			errorField.append(",").append(fieldName);
 		});
 		String errorMessages = errorMessage.substring(1, errorMessage.length());
+		String errorFields = errorField.substring(1, errorField.length());
 		userJson.setErrorMessage(errorMessages);
-		userJson.setErrorCode(-1);
+		userJson.setErrorCode(errorFields);
 		userJson.setUser(null);
 		return new ResponseEntity<UserResponseJson>(userJson, HttpStatus.BAD_REQUEST);
 

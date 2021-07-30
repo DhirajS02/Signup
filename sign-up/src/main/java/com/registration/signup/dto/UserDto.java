@@ -1,5 +1,8 @@
 package com.registration.signup.dto;
 
+import lombok.Data;
+
+@Data
 public class UserDto {
 	 private String customerId;
 		private String password;
